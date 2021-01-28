@@ -131,8 +131,16 @@
                                                 <color key="progressTintColor" systemColor="systemYellowColor"/>
                                                 <color key="trackTintColor" systemColor="systemGrayColor"/>
                                             </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adb-O3-dqB">
+                                                <rect key="frame" x="0.0" y="120" width="343" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="Adb-O3-dqB" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" id="7mj-2y-2Vb"/>
+                                            <constraint firstAttribute="trailing" secondItem="Adb-O3-dqB" secondAttribute="trailing" id="MMm-Fs-zTC"/>
                                             <constraint firstItem="24X-aU-gMa" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="Xks-g8-Lra"/>
                                             <constraint firstItem="24X-aU-gMa" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" id="bel-Os-VAm"/>
                                             <constraint firstAttribute="trailing" secondItem="24X-aU-gMa" secondAttribute="trailing" id="z6z-Mw-JUe"/>
@@ -153,6 +161,7 @@
                     <connections>
                         <outlet property="eggLabel" destination="XLm-5r-pSP" id="57O-uc-jDc"/>
                         <outlet property="progressBar" destination="24X-aU-gMa" id="klz-7e-rHC"/>
+                        <outlet property="timeLabel" destination="Adb-O3-dqB" id="EGQ-Qy-zKs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

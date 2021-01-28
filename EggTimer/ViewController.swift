@@ -11,6 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     	
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var eggLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     let eggTimes: [String:Int] = ["Soft": 300, "Medium": 420, "Hard": 720]
@@ -24,7 +25,7 @@ class ViewController: UIViewController {
         secondsPassed = 0
         timer.invalidate()
         let hardness = sender.currentTitle!
-        eggLabel.text = hardness
+        eggLabel.text = "\(hardness) are \(eggTimes[hardness]! / 60) minutes"
         totalTime = eggTimes[hardness]!
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
@@ -34,6 +35,7 @@ class ViewController: UIViewController {
         if secondsPassed < totalTime {
             secondsPassed += 1
             progressBar.progress = Float(secondsPassed) / Float(totalTime)
+            timeLabel.text = printSecondsToHoursMinutesSeconds(seconds: secondsPassed)
         }else {
             timer.invalidate()
             playSound()
@@ -46,5 +48,13 @@ class ViewController: UIViewController {
         player = try! AVAudioPlayer(contentsOf: url!)
         player.play()
     }
-
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    func printSecondsToHoursMinutesSeconds (seconds:Int) -> String {
+        let (h, m, s) = secondsToHoursMinutesSeconds (seconds: seconds)
+      return ("\(m) Minutes, \(s) Seconds")
+    }
 }
